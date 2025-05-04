@@ -1,0 +1,90 @@
+name: education_app
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  bloc: ^9.0.0
+  chewie: ^1.11.3
+  cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
+  flutter_bloc: ^9.1.0
+  equatable: ^2.0.7
+  file_picker: ^10.1.2
+  font_awesome_flutter: ^10.8.0
+  get_it: ^8.0.3
+  iconly: ^1.0.1
+  image_picker: ^1.1.2
+  intl: ^0.20.2
+  lottie: ^3.0.0
+  open_file: ^3.5.10
+  path_provider: ^2.1.5
+  provider: ^6.1.5
+  shared_preferences: ^2.5.3
+  smooth_page_indicator: ^1.2.1
+  swipe_to: ^1.0.6
+  url_launcher: ^6.3.1
+  youtube_metadata: ^1.0.1
+  video_thumbnail: ^0.5.3
+
+dev_dependencies:
+  bloc_test: ^10.0.0
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  mocktail: ^1.0.4
+  very_good_analysis: ^7.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/lottie/
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/poppins/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/poppins/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
+          weight: 800
+    - family: AeonikPro
+      fonts:
+        - asset: assets/fonts/aeonik/AeonikPro-Bold.otf
+          weight: 700
+        - asset: assets/fonts/aeonik/AeonikPro-BoldItalic.otf
+          style: italic
+          weight: 700
+        - asset: assets/fonts/aeonik/AeonikPro-Light.otf
+          weight: 300
+        - asset: assets/fonts/aeonik/AeonikPro-LightItalic.otf
+          style: italic
+          weight: 300
+        - asset: assets/fonts/aeonik/AeonikPro-Regular.otf
+          weight: 400
+        - asset: assets/fonts/aeonik/AeonikPro-RegularItalic.otf
+          style: italic
+          weight: 400
