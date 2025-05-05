@@ -30,55 +30,60 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<OnBoardingCubit, OnBoardingState>(
-        listener: (context, state) {
-          if (state is OnBoardingStatus) {
-            Navigator.pushReplacementNamed(context, '/home');
-          } else if (state is UserCached) {
-            // TODO(User-Cached-Handler): Push to the appropriate screen
-          }
-        },
-        builder: (context, state) {
-          if (state is CheckingIfUserFirstTimer || state is CachingFirstTimer) {
-            return const LoadingView();
-          }
-          return GradientBackground(
-            image: MediaRes.onBoardingBackground,
-            child: Stack(
-              children: [
-                PageView(
-                  controller: _pageController,
-                  children: const [
-                    OnBoardingBody(pageContent: PageContent.first()),
-                    OnBoardingBody(pageContent: PageContent.second()),
-                    OnBoardingBody(pageContent: PageContent.third()),
-                  ],
-                ),
-                Align(
-                  alignment: const Alignment(0, .04),
-                  child: SmoothPageIndicator(
+      backgroundColor: Colors.white,
+      body: GradientBackground(
+        image: MediaRes.onBoardingBackground,
+        child: BlocConsumer<OnBoardingCubit, OnBoardingState>(
+          listener: (context, state) {
+            if (state is OnBoardingStatus && !state.isFirstTimer) {
+              Navigator.pushReplacementNamed(context, '/home');
+            } else if (state is UserCached) {
+              // TODO(User-Cached-Handler): Push to the appropriate screen
+            }
+          },
+          builder: (context, state) {
+            if (state is CheckingIfUserFirstTimer ||
+                state is CachingFirstTimer) {
+              return const LoadingView();
+            }
+            return GradientBackground(
+              image: MediaRes.onBoardingBackground,
+              child: Stack(
+                children: [
+                  PageView(
                     controller: _pageController,
-                    count: 3,
-                    onDotClicked: (index) {
-                      _pageController.animateToPage(
-                        index,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                    effect: const WormEffect(
-                      dotWidth: 10,
-                      dotHeight: 10,
-                      spacing: 40,
-                      activeDotColor: Colours.primaryColour,
-                      dotColor: Colors.white,
+                    children: const [
+                      OnBoardingBody(pageContent: PageContent.first()),
+                      OnBoardingBody(pageContent: PageContent.second()),
+                      OnBoardingBody(pageContent: PageContent.third()),
+                    ],
+                  ),
+                  Align(
+                    alignment: const Alignment(0, .04),
+                    child: SmoothPageIndicator(
+                      controller: _pageController,
+                      count: 3,
+                      onDotClicked: (index) {
+                        _pageController.animateToPage(
+                          index,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                      },
+                      effect: const WormEffect(
+                        dotWidth: 10,
+                        dotHeight: 10,
+                        spacing: 40,
+                        activeDotColor: Colours.primaryColour,
+                        dotColor: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
