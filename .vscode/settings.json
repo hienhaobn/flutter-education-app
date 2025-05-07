@@ -1,3 +1,4 @@
 {
-  "cmake.sourceDirectory": "/Users/lisoduser/Code/Private/Mobile/flutter-education-app/linux"
+  "cmake.sourceDirectory": "/Users/lisoduser/Code/Private/Mobile/flutter-education-app/linux",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
